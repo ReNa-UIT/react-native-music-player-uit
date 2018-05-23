@@ -5,7 +5,6 @@ import {
 }from 'react-native';
 import {sectionListData} from '../data/sectionListData';
 import AddModal from './AddModal';
-import AddModalSong from './AddModalSong';
 import Swipeout from 'react-native-swipeout';
 
 class SectionListItem extends Component{
@@ -49,13 +48,8 @@ class SectionHeader extends Component{
         this.state={
             activeRowKey:null
         };
-        this._onPressAdd=this._onPressAdd.bind(this);
     }
 
-    _onPressAdd(){
-        this.refs.addModalsong.showAddModal();
-    }
-    
     render(){
         const swipeSettings = {
             autoClose:true,
@@ -114,17 +108,11 @@ class SectionHeader extends Component{
                         <View style={{flex:10, justifyContent: 'center'}}>
                             <TouchableHighlight style={{marginRight:5}}
                                                 underlayColor='rgba(52,52,52,0.6)'
-                                                onPress={this._onPressAdd}
-                            >
+                                                onPress={()=>{}}>
                                 <Image style={{width:25,height:25, tintColor: 'white'}}
-                                    source={require('../icon/thembai.png')}
-
-                                />
-
+                                    source={require('../icon/thembai.png')}/>
                             </TouchableHighlight>
                         </View>
-                        <AddModalSong ref={'addModalsong'} parentSectionList={this} >
-                        </AddModalSong>
                     </View>
                     </ImageBackground>
                 </Swipeout>
@@ -133,18 +121,20 @@ class SectionHeader extends Component{
 }
 
 export default class Playlist extends Component{
-    constructor(props){
-        super(props);
+    constructor(props) {
+        super(props);     
+        this.state = ({
+            deletedRowKey: null,            
+        });
         this._onPressAdd=this._onPressAdd.bind(this);
     }
 
-    refreshSectionList=(activeKey,deleteKey)=>{
-        this.setState((prevState)=>{
-            return{
-                deleteRowKey:activeKey,deleteKey
+    refreshSectionList = (activeKey) => {
+        this.setState((prevState) => {
+            return {
+                deletedRowKey: activeKey
             };
         });
-
     }
 
     _onPressAdd(){
@@ -175,7 +165,7 @@ export default class Playlist extends Component{
                     <SectionList
                         renderItem={({item, index})=>{
                             return(
-                                <SectionListItem item={item} index={index} parentSectionList={this}/>
+                                <SectionListItem item={item} index={index}/>
                             );
                         }}
                         renderSectionHeader={({section})=>{
@@ -184,7 +174,7 @@ export default class Playlist extends Component{
                             );
                         }}
                         sections={sectionListData}
-                        keyExtractor={(item, index)=>item.name}
+                        keyExtractor={(item, index) => item.name}
                     />
                     <AddModal ref={'addModal'} parentSectionList={this}>
                     </AddModal>

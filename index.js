@@ -1,6 +1,5 @@
-import { AppRegistry } from 'react-native';
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+import { AppRegistry, YellowBox } from 'react-native';
 import Menu from './Menu';
 
 AppRegistry.registerComponent('Player', () => Menu);
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
