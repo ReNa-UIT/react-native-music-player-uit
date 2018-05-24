@@ -32,22 +32,24 @@ const styles=StyleSheet.create({
         marginTop:0,
     },
     touch_container:{
-        paddingTop:5,
-        paddingLeft:5,
+        paddingLeft:10,
+        paddingTop:2,
         paddingBottom:2,
-        borderWidth:1,
-        borderRadius:1,
+        borderWidth:0.5,
+        borderRadius:2,
         borderColor:'#333',
         backgroundColor:'rgba(52, 52, 52, 0.3)',
     },
     container:{
         flex:1,
-        flexDirection:'row'
+        flexDirection:'row',
+        marginTop: 8,
+        marginBottom: 8
     },
     images:{
-        width:60,
-        height:60,
-        borderRadius:50,
+        width:45,
+        height:45,
+        borderRadius:45,
         alignItems:'center',
         justifyContent:'center'
     },

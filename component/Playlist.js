@@ -144,42 +144,42 @@ export default class Playlist extends Component{
 
     render(){
         return(
-            <ImageBackground source={require('../images/khoi3d3.jpg')} style={{flex:1}}>
-                <View style={{flex:12,
-                        alignItems:'center', flexDirection: 'row'}}>
-                        <View style={{flex:90, justifyContent:'flex-start', flexDirection: 'row', alignItems: 'center'}}>
-                            <Image style={{width:18,height:18, marginLeft: 10, marginRight: 10, tintColor: 'white'}}
-                                source={require('../icon/playlist2.png')}/>
-                            <Text style={{fontSize: 20, color:'white',fontFamily: "Helvetica Neue"}}>Danh sách phát</Text>
-                        </View>
-                        <View style={{flex:10, justifyContent: 'center'}}>
-                            <TouchableHighlight style={{justifyContent: 'center', alignItems: 'center'}}
-                                                underlayColor="rgba(52, 52, 52, 0.6)"
-                                                onPress={this._onPressAdd}>
-                                <Image style={{width:22,height:22, tintColor: 'white'}}
-                                    source={require('../icon/add.png')}/>
-                            </TouchableHighlight>
-                        </View>
-                </View>
-                <View style={{flex:88}}>
-                    <SectionList
-                        renderItem={({item, index})=>{
-                            return(
-                                <SectionListItem item={item} index={index}/>
-                            );
-                        }}
-                        renderSectionHeader={({section})=>{
-                            return(
-                                <SectionHeader section={section} parentSectionList={this}/>
-                            );
-                        }}
-                        sections={sectionListData}
-                        keyExtractor={(item, index) => item.name}
-                    />
-                    <AddModal ref={'addModal'} parentSectionList={this}>
-                    </AddModal>
-                </View>
-            </ImageBackground>
+                <ImageBackground source={require('../images/khoi3d3.jpg')} style={{flex:1}}>
+                    <View style={{flex:12,
+                            alignItems:'center', flexDirection: 'row'}}>
+                            <View style={{flex:90, justifyContent:'flex-start', flexDirection: 'row', alignItems: 'center'}}>
+                                <Image style={{width:18,height:18, marginLeft: 10, marginRight: 10, tintColor: 'white'}}
+                                    source={require('../icon/playlist2.png')}/>
+                                <Text style={{fontSize: 20, color:'white',fontFamily: "Helvetica Neue"}}>Danh sách phát</Text>
+                            </View>
+                            <View style={{flex:10, justifyContent: 'center'}}>
+                                <TouchableHighlight style={{justifyContent: 'center', alignItems: 'center'}}
+                                                    underlayColor="rgba(52, 52, 52, 0.6)"
+                                                    onPress={this._onPressAdd}>
+                                    <Image style={{width:22,height:22, tintColor: 'white'}}
+                                        source={require('../icon/add.png')}/>
+                                </TouchableHighlight>
+                            </View>
+                    </View>
+                    <View style={{flex:88}}>
+                        <SectionList
+                            renderItem={({item, index})=>{
+                                return(
+                                    <SectionListItem item={item} index={index}/>
+                                );
+                            }}
+                            renderSectionHeader={({section})=>{
+                                return(
+                                    <SectionHeader section={section} parentSectionList={this}/>
+                                );
+                            }}
+                            sections={sectionListData}
+                            keyExtractor={(item, index) => item.name}
+                        />
+                        <AddModal ref={'addModal'} parentSectionList={this}>
+                        </AddModal>
+                    </View>
+                </ImageBackground>
         );
     }
 }

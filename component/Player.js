@@ -226,7 +226,7 @@ export default class Player extends Component {
                         repeat={this.state.repeat}/>
             <ImageBackground style={{flex:1,paddingTop:20}} source={picBg}>
                 <View style={styles.container}>
-                    <View style={{flex: 13, flexDirection: 'row', marginTop: 10}}>
+                    <View style={{flex: 8, flexDirection: 'row', marginTop: 10}}>
                         <View style={{flex: 10}}/>
                         <View style={{flex: 80, alignItems: 'center'}}>
                             <Text style={ styles.headerText }>
@@ -237,17 +237,16 @@ export default class Player extends Component {
                             {favoriteButton}
                         </View>
                     </View>
-                    <View style={{flex:45, alignItems: 'center', justifyContent: 'center'}}>
+                    <View style={{flex:50, alignItems: 'center', justifyContent: 'center'}}>
                         <Animated.Image
                                 style={{
-                                    marginBottom: 22,
-                                    width: 250,
-                                    height: 250,
-                                    borderRadius: 250/2,
+                                    width: 280,
+                                    height: 280,
+                                    borderRadius: 280/2,
                                     transform: [{rotate: spin}] }}
                                     source={{uri: image}}/>
                     </View>
-                    <View style={{flex: 15, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                    <View style={{flex: 15, flexDirection: 'column', alignItems: 'center', justifyContent:'center'}}>
                         <Text style={ styles.songTitle }>
                             { songPlaying.title }
                         </Text>
